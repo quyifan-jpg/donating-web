@@ -1,0 +1,10 @@
+.info_block{
+    border: 3px solid sandybrown;
+    height: 300px;
+    width: 500px;
+    position: relative;
+    margin-left: 300px;
+}
+h2 {
+    align-items: center;
+}

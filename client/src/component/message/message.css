@@ -1,0 +1,9 @@
+.delete_this_message{
+    margin-left: 20px;
+    font-size: x-large;
+    border-radius: 6px;
+    background: #0095d5;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}

@@ -1,0 +1,6 @@
+[
+    {"name":"item1", "location":"street a", "description":"this is item 1", "type":"bed"},
+    {"name":"item2", "location":"street a", "description":"this is item 2", "type" : "chair"},
+    {"name":"item3", "location":"street a", "description":"this is item 3", "type" : "desk"},
+    {"name":"item4", "location":"street a", "description":"this is item 4", "type" : "bed"}
+  ]

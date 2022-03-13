@@ -1,0 +1,9 @@
+/* Styles for the Header React component */
+.header {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    border-width: 1ch;
+    display: flex;
+  }
+  

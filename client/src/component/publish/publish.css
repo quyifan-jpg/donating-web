@@ -1,0 +1,73 @@
+.publishBox{
+    height: 700px;
+    float: right;
+    background-color: aliceblue;
+    width: 22%;
+
+}
+
+.formBox{
+    width:75%;
+    height:40px;
+    font-size: large;
+    margin-left: 10%;
+    border-width: 1px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.formBox:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonTwo{
+    width:75%;
+    height:40px;
+    font-size: large;
+    margin-left: 10%;
+    border-width: 0;
+    border-radius: 6px;
+    background: #0095d5;
+    outline: none;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.buttonTwo:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonNoneTwo{
+    opacity: 0.4;
+    pointer-events:none;
+    width:75%;
+    height:40px;
+    font-size: large;
+    margin-left: 10%;
+    border-width: 0;
+    border-radius: 6px;
+    background: #0095d5;
+    outline: none;
+    color: white;
+}
+
+.rightBox{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: 10%;
+}
+
+
+.errorWhite{
+    display: none;
+}
+
+.errorRed{
+    color: red;
+    display: block;
+    max-width: 70%;
+    margin-left: 15%;
+    text-align: center;
+
+}

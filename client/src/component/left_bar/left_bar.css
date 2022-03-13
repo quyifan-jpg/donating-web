@@ -1,0 +1,43 @@
+
+.left_bar{
+    background-color: aliceblue;
+    width: 20%;
+    float:left;
+}
+
+.rightBar{
+    float: right;
+    background-color: aliceblue;
+    width: 25%;
+}
+
+.buttonBar{
+    width: 100px;
+    height: 40px;
+    border-width: 0;
+    border-radius: 6px;
+    background: #0095d5;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: large;
+    margin-left: 20%;
+    margin-top: 15px;
+}
+
+.buttonBar:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#ulCSS{
+    list-style: none;
+}
+
+#ulCSS2{
+    list-style: none;
+}
+
+.word{
+    margin-left: 20px;
+    font-size: larger;
+}

@@ -1,0 +1,26 @@
+#is_admin{
+    display: block;
+}
+
+#not_admin{
+    display: none;
+}
+
+.see_all_users{
+    margin-left: 20px;
+    font-size: x-large;
+    border-radius: 6px;
+    background: #0095d5;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 53%;
+}
+
+.see_all_users:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* .bottom{
+    position: absolute;
+} */

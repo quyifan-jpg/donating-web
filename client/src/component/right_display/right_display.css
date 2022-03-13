@@ -1,0 +1,31 @@
+.right_display{
+    float: left;
+    margin-left: 20px;
+    width: 53%;
+    font-size: larger;
+}
+
+.item_shortcut{
+    background-color: aliceblue;
+    width: 30%;
+    float: left;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.item_shortcut:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#showButton{
+    width:90%;
+    font-size: large;
+}
+.Publish{
+    width: 20%;
+    background-color: aqua;
+}
+a{
+    text-decoration-style: none;
+}

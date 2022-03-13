@@ -1,0 +1,13 @@
+.container{
+    flex-direction: row;
+    
+}
+
+#currentUser{
+    display: inline;
+}
+
+.infoButton{
+    /*width: 100%;*/
+    /*background-color: darkgrey;*/
+}
