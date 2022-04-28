@@ -8,8 +8,8 @@ const app = express();
 
 
 //setup connection
-// const uri2 = "mongodb+srv://csc311:csc311@cluster0.kvjtv.mongodb.net/309project?retryWrites=true&w=majority"
-const uri = "mongodb+srv://yifan:yifan@cluster0.4y3hu.mongodb.net/csc309?retryWrites=true&w=majority";
+var uri = "mongodb+srv://yifan:yifan@cluster0.4y3hu.mongodb.net/csc309?retryWrites=true&w=majority"
+uri = 'mongodb://127.0.0.1:27017/csc309'
 
 
 const mongoose = require('mongoose')
@@ -17,18 +17,13 @@ mongoose.connect(uri, {useNewUrlParser:true, useUnifiedTopology:true}).then(
 	(result)=>{console.log('connected to db')}
 ).catch(err=>console.log("not connected"))
 
-// body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser')
 app.use(bodyParser.json()) // parsing JSON body
 app.use(bodyParser.urlencoded({ extended: true })); // parsing URL-encoded form data (from form POST requests)
 
-//const MongoStore = require('connect-mongo') // to store session information on the database in production
-
-// import the mongoose models
 const { Items } = require("./models/item");
 const { Users } = require("./models/user");
 const bcrypt = require('bcryptjs')
-//const jwt    = require('jsonwebtoken');
 const session = require("express-session");
 const mongoDBSession = require('connect-mongodb-session')(session)
 const cors = require('cors')
@@ -47,20 +42,19 @@ app.use(
             expires: 60000,
             httpOnly: true
         },
-        // store the sessions on the database in production
         store: store
     })
 );
 app.get("/",(req, res) => {
-    //res.render('./public/index.html')
-    // console.log(req.session)
     console.log("get /")
     if(req.session.Username){
         console.log(req.session)
     }
     res.sendFile(path.join(__dirname, 'client/build','index.html'))
 })
-
+app.get("/test", (req,res)=>{
+    console.log("get /")
+})
 app.use(express.static(path.join(__dirname, "/client/build")));
 
 const redirectHome = (req, res, next)=>{
@@ -72,7 +66,6 @@ const redirectHome = (req, res, next)=>{
     }
 }
 app.get("/users/check-session", (req, res) => {
-
     if (req.session.Username) {
         Users.findOne({Username: req.session.Username}).then(user=>{
             if (user){
@@ -145,7 +138,6 @@ app.post('/api/login', (req, res)=>{
 })
 
 app.get("/api/logout", (req, res) => {
-    // Remove the session
     req.session.destroy(error => {
         if (error) {
             res.status(500).send(error);
@@ -167,17 +159,12 @@ app.post('/api/register',async (req, res) => {
         likes: [],
         notification: ["welcome to furniture cycle"]
     })
-    // Save newUser to the database
-    // async-await version:
     try {
         const result = await newUser.save()
-        // console.log(result)
-        // console.log(result._id)
         newUser.Uid = result._id.toString()
         const result2 = await newUser.save()
         res.send(result2)
         req.session.Username = user.Username;
-
     } catch(error) {
         log(error) // log server error to the console, not to the client.
         if (isMongoError(error)) { // check for if mongo server suddenly dissconnected before this request.
@@ -188,7 +175,6 @@ app.post('/api/register',async (req, res) => {
     }
 })
 app.get('/info', (req, res) => {
-    // Add code here
     Users.find().then((rests) => {
         res.json(rests)
     }).catch((error) => {
@@ -197,13 +183,9 @@ app.get('/info', (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    //res.render('./public/index.html')
-    // console.log(req.session)
     console.log("get /")
-    //res.sendFile(path.join(__dirname, 'client/build','index.html'))
 })
 app.get('/api/itemAll', (req, res) => {
-    //res.render('./public/index.html')
     try {
         Items.find().then((result) => {
             res.json(result)
@@ -225,9 +207,6 @@ app.post('/api/itemAll', async(req,res) => {
         description: req.body.description,
         type: req.body.type
     })
-
-    // Save newUser to the database
-    // async-await version:
     try {
         const result = await newItem.save()
         res.send(result)
@@ -275,9 +254,7 @@ app.delete('/api/userAll', (req, res) => {
             res.status(500).send('Internal server error')
         } else {
             res.status(400).send('Bad Request') // 400 for bad request gets sent to client.
-        }
-    }
-})
+        }}})
 
 app.patch('/api/userAll', async(req, res) => {
     console.log(req.body)
@@ -319,7 +296,6 @@ app.get('/api/userAll', async (req, res) => {
 
 })
 const test = []
-// login register
 
 
 app.post('/api/userAll', async (req, res) => {
@@ -354,7 +330,6 @@ app.post('/api/userAll', async (req, res) => {
 app.get('*', (req, res) => {
     console.log("invalid address")
     res.status(404).send("404 Error: We cannot find the page you are looking for.");
-    // you could also send back a fancy 404 webpage here.
 });
 
 
@@ -365,8 +340,6 @@ app.listen(port, () => {
 
 
 function isMongoError(error) {
-    // checks for first error returned by promise rejection
-    // if Mongo database suddenly disconnects
     return typeof error === 'object' &&
         error !== null && error.name === "MongoNetworkError"
 }

@@ -1,19 +1,5 @@
 const mongoose = require('mongoose')
 
-//      {id:7,name:"item8",owener:2,region:"Scarborough", location:'street h', description:"this is item 8", type : "lighting"}
-
-// const ItemSchema = new mongoose.Schema({
-//     name: String,
-// 	owener: Number,
-//     region: String,
-//
-// 	location: String,
-// 	description:String,
-// 	type:String
-// });
-//
-// const Item = mongoose.model('User', ItemSchema);
-
 const Items = mongoose.model('Items', new mongoose.Schema({
 	id: {
 		type: Number,

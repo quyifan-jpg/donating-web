@@ -12,9 +12,7 @@ import Message from './component/message/message';
 import ItemDisplay from './component/item_display.js/item_display';
 import Cart from "./component/cart/cart";
 import NavigationBar from "./component/navigationBar/navigationBar";
-
 import Block from "./component/info/block"
-
 import BottomDisplay from "./component/bottom_display/bottom_display"
 import AllUsers from "./component/all_users/all_users"
 

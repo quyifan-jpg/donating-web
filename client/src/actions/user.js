@@ -122,7 +122,6 @@ export const checkSession = (app) => {
         .then(json => {
             if (json && json.UserCurrent) {
                 const newUser = json.UserCurrent
-            // newUser.Uid = newUser._id
                 app.setState({ UserCurrent: newUser });
                 console.log("refesh")
             }
@@ -135,7 +134,6 @@ export const checkSession = (app) => {
 };
 
 export const changePasswordEmailPhoneNumber = (userID, newPassword, newEmail, newPhoneNumber) => {
-    // the URL for the request
     const url = `${API_HOST}/api/userAll`;
 
     const updateUser = {
@@ -146,23 +144,14 @@ export const changePasswordEmailPhoneNumber = (userID, newPassword, newEmail, ne
     }
     console.log(updateUser)
 
-    // Create our request constructor with all the parameters we need
-    // const request = new Request(
-    // });
-
-    // Send the request with fetch()
     fetch(url, {
         method: "PATCH",
         headers: {
             Accept: "application/json, text/plain, */*",
             "Content-Type": "application/json"
         },
-        // The data we are going to send in our request
-
         body: JSON.stringify(updateUser)
     }).then(function (res) {
-            // Handle response we get from the API.
-            // Usually check the error codes to see what happened.
             if (res.status === 200) {
                 return res.json();
             }
@@ -170,31 +159,6 @@ export const changePasswordEmailPhoneNumber = (userID, newPassword, newEmail, ne
         .catch(error => {
             console.log(error);
         });
-
-    // Object.keys(updateUser).length
-    //
-    // const request = new Request(url, {
-    //     method: "post",
-    //     // The data we are going to send in our request
-    //     body: JSON.stringify(updateUser),
-    //     headers: {
-    //         Accept: "application/json, text/plain, */*",
-    //         "Content-Type": "application/json"
-    //     }
-    // });
-    //
-    // // Send the request with fetch()
-    // fetch(request)
-    //     .then(function (res) {
-    //         // Handle response we get from the API.
-    //         // Usually check the error codes to see what happened.
-    //         if (res.status === 200) {
-    //             return res.json();
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     });
 }
 
 
